@@ -1,0 +1,98 @@
+{{ define "main" }}
+{{ $headless := .GetPage "./homepage" }}
+{{ $sections := $headless.Resources.ByType "page" }}
+{{ $sections := where $sections "Draft" "==" false }}
+
+{{/* ── Hero ── */}}
+<header class="hero">
+  <div class="hero__overlay"></div>
+  <nav class="hero__nav">
+    <span class="hero__logo">Brf Eken</span>
+    <div class="hero__links">
+      {{ range $sections }}
+        {{ if .Params.header_menu }}
+        <a href="#{{ anchorize .Title }}">{{ .Title }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+    <button class="hero__burger" aria-label="Meny">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="hero__content">
+    {{ with .Params.header_headline }}<h1>{{ . | safeHTML }}</h1>{{ end }}
+    {{ with .Params.header_subheadline }}<p>{{ . | safeHTML }}</p>{{ end }}
+    <a href="#{{ with (index $sections 0) }}{{ anchorize .Title }}{{ end }}" class="hero__arrow" aria-label="Scrolla ner">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 10l5 5 5-5"/></svg>
+    </a>
+  </div>
+</header>
+
+{{/* ── Sections ── */}}
+<main>
+  {{ range $i, $section := $sections }}
+  {{ if .Title }}
+  <section id="{{ anchorize .Title }}" class="section{{ if (modBool $i 2) }} section--alt{{ end }}">
+    <div class="section__inner">
+      <h2 class="section__title">{{ .Title }}</h2>
+      <div class="section__content">
+        {{ .Content }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+  {{ end }}
+</main>
+
+{{/* ── Footer ── */}}
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="footer__logo">Brf Eken</span>
+      <p>Ekvägen, Alnö</p>
+    </div>
+    <div class="footer__contact">
+      {{ range .Site.Params.contacts }}
+      <a href="{{ .url | safeURL }}">{{ .value }}</a>
+      {{ end }}
+    </div>
+    <div class="footer__copy">
+      {{ with .Site.Params.copyright }}{{ . | safeHTML }}{{ end }}
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile menu toggle
+const burger = document.querySelector('.hero__burger');
+const links = document.querySelector('.hero__links');
+if (burger) {
+  burger.addEventListener('click', () => {
+    links.classList.toggle('open');
+    burger.classList.toggle('open');
+  });
+  // Close menu on link click
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      burger.classList.remove('open');
+    });
+  });
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Sticky nav background on scroll
+const nav = document.querySelector('.hero__nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+</script>
+{{ end }}

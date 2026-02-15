@@ -1,0 +1,3 @@
+{{ range .Site.Params.contacts }}
+<p><a href="{{ .url | safeURL }}">{{ .value }}</a></p>
+{{ end }}
