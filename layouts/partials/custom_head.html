@@ -1,0 +1,188 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+    /* Cover / Landing area */
+    --cover-text-color: #1a1a1a;
+    --highlight: #8a9a7b;
+    --highlight-contrast: #ffffff;
+    --highlight-inverse: #1a1a1a;
+    --highlight-inverse-contrast: #ffffff;
+
+    --cover-title-and-description-guard-bg-color: rgba(255, 255, 255, 0.85);
+    --cover-title-text-shadow: none;
+
+    /* Navigation */
+    --sticky-menu-text-color: #8a9a7b;
+
+    /* Light sections — clean white */
+    --section-light-text-color: #1a1a1a;
+    --section-light-bg-color: #ffffff;
+
+    /* Dark sections — very soft warm gray */
+    --section-dark-text-color: #1a1a1a;
+    --section-dark-bg-color: #f5f5f3;
+
+    /* Quotes and code */
+    --section-uni-quote: #6b7280;
+    --section-uni-code-bg-color: #f0f0ee;
+
+    /* Single pages */
+    --single-page-text-color: #1a1a1a;
+    --single-page-bg-color: #ffffff;
+
+    /* Footer */
+    --footer-color-background: #1a1a1a;
+    --footer-color: #d1d5db;
+
+    /* Lists */
+    --ul-li-icon: ;
+}
+
+/* Typography */
+body,
+.post-content,
+.post-holder {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+}
+
+/* Hero section */
+#site-head .blog-title {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 4rem;
+    text-shadow: none;
+}
+
+#site-head .blog-description {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300;
+    font-size: 1.6rem;
+    letter-spacing: 0.03em;
+    text-shadow: none;
+}
+
+#site-head .title-and-description-guard {
+    border-radius: 8px;
+    padding: 1.5em 2.5em;
+    backdrop-filter: blur(10px);
+}
+
+/* Menu buttons on hero */
+#site-head a.btn {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-radius: 4px;
+    padding: 12px 24px;
+    transition: all 0.2s ease;
+}
+
+/* Section headings */
+.post-header .post-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+/* Content sections — generous spacing */
+.post {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    max-width: 680px;
+}
+
+.post-content h5 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 1rem;
+    margin-top: 2rem;
+}
+
+/* Clean horizontal rules */
+.post-content hr {
+    border: none;
+    border-top: 1px solid #e5e5e5;
+    margin: 2rem 0;
+}
+
+/* Tables — minimal Scandinavian style */
+.post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.post-content th,
+.post-content td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.post-content th {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+/* Blockquotes */
+.post-content blockquote {
+    border-left: 2px solid #8a9a7b;
+    padding-left: 1.5rem;
+    font-style: italic;
+    color: #6b7280;
+}
+
+/* Images — subtle rounding */
+.post-content img {
+    border-radius: 4px;
+}
+
+/* Left navigation — match clean style */
+.fixed-nav {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    background-color: #ffffff;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Footer */
+.site-footer {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+/* Smooth transitions on triangular dividers */
+.post-after {
+    border-top-color: transparent !important;
+    display: none !important;
+}
+
+/* Subtle section separator instead of triangles */
+.post-holder + .post-holder {
+    border-top: 1px solid #f0f0ee;
+}
+
+/* Scroll arrow — subtler */
+#site-head #header-arrow {
+    font-size: 80px;
+    opacity: 0.3;
+}
+</style>

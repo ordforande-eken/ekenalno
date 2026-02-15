@@ -1,0 +1,54 @@
+baseURL = "https://brf-eken.se"
+
+# Single-page website — disable unnecessary page types
+disableKinds = ["section", "taxonomy", "term", "RSS", "robotsTXT"]
+
+defaultContentLanguage = "sv"
+languageCode = "sv"
+
+theme = "hugo-scroll"
+
+title = "Brf Eken"
+
+enableEmoji = false
+
+[params]
+    favicon = "images/favicon.png"
+    images = ["images/hero.jpg"]
+
+    title_guard = true
+
+    title = "Brf Eken"
+    description = "Bostadsrättsföreningen Eken på Ekvägen, Alnö"
+
+    language_menu = false
+    show_current_lang = false
+
+    copyright = "&copy; Brf Eken"
+
+    hidedesignbyline = true
+
+    invertSectionColors = false
+
+    image_options = "webp q90 lanczos photo"
+
+    combine_page_and_site_title = false
+
+    [params.footer]
+    showContactIcons = true
+    showFooterLinks = false
+
+    [params.meta]
+        keywords = "brf eken, bostadsrättsförening, alnö, ekvägen, sundsvall, bostad"
+
+    [[params.contacts]]
+        label = "email"
+        value = "styrelsen@brf-eken.se"
+        url = "mailto:styrelsen@brf-eken.se"
+        icon = "fa fa-envelope"
+
+    [[params.contacts]]
+        label = "phone"
+        value = "070-123 45 67"
+        url = "tel:+46701234567"
+        icon = "fa fa-phone"
