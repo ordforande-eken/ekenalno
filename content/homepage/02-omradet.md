@@ -4,7 +4,7 @@ weight: 2
 header_menu: true
 ---
 
-![Alnö och omgivningarna](/images/omradet.jpg)
+{{< asset_img src="images/omradet.jpg" alt="Alnö och omgivningarna" >}}
 
 Alnö är en ö i Sundsvalls kommun som erbjuder det bästa av två världar — lantlig idyll med storstadens bekvämligheter bara minuter bort. Ön är förbunden med fastlandet via Alnöbron och har en rik historia, vacker natur och ett aktivt föreningsliv.
 

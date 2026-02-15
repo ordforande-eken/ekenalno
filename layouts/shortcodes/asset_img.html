@@ -1,0 +1,5 @@
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" | default "" }}
+{{ with resources.Get $src }}
+<img src="{{ .RelPermalink }}" alt="{{ $alt }}" />
+{{ end }}

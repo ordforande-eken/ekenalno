@@ -4,7 +4,16 @@
 {{ $sections := where $sections "Draft" "==" false }}
 
 {{/* ── Hero ── */}}
+{{ $heroImages := slice }}
+{{ range (slice "images/hero.jpg" "images/husen.jpg") }}
+  {{ with resources.Get . }}
+    {{ $heroImages = $heroImages | append .RelPermalink }}
+  {{ end }}
+{{ end }}
 <header class="hero">
+  {{ range $i, $src := $heroImages }}
+  <div class="hero__slide{{ if eq $i 0 }} active{{ end }}" style="background-image: url('{{ $src }}')"></div>
+  {{ end }}
   <div class="hero__overlay"></div>
   <nav class="hero__nav">
     <span class="hero__logo">Brf Eken</span>
@@ -94,5 +103,51 @@ const nav = document.querySelector('.hero__nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 });
+
+// Hero image carousel
+const heroSlides = document.querySelectorAll('.hero__slide');
+if (heroSlides.length > 1) {
+  let current = 0;
+  setInterval(() => {
+    heroSlides[current].classList.remove('active');
+    current = (current + 1) % heroSlides.length;
+    heroSlides[current].classList.add('active');
+  }, 6000);
+}
+
+// Content carousels
+document.querySelectorAll('.carousel').forEach(carousel => {
+  const slides = carousel.querySelectorAll('.carousel__slide');
+  if (slides.length > 1) {
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+  }
+});
+
+// Lightbox
+const lightbox = document.createElement('div');
+lightbox.className = 'lightbox';
+lightbox.innerHTML = '<button class="lightbox__close" aria-label="Stäng">&times;</button><img src="" alt="" />';
+document.body.appendChild(lightbox);
+
+const lbImg = lightbox.querySelector('img');
+const lbClose = lightbox.querySelector('.lightbox__close');
+
+document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+  trigger.addEventListener('click', e => {
+    e.preventDefault();
+    lbImg.src = trigger.href;
+    lightbox.classList.add('open');
+  });
+});
+
+function closeLightbox() { lightbox.classList.remove('open'); }
+lightbox.addEventListener('click', closeLightbox);
+lbClose.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
 {{ end }}

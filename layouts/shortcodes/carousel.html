@@ -1,0 +1,11 @@
+{{ $images := split (.Get "images") "," }}
+<div class="carousel">
+  {{ range $i, $src := $images }}
+    {{ $src = trim $src " " }}
+    {{ with resources.Get $src }}
+    <a href="{{ .RelPermalink }}" class="carousel__slide{{ if eq $i 0 }} active{{ end }} lightbox-trigger">
+      <img src="{{ .RelPermalink }}" alt="" />
+    </a>
+    {{ end }}
+  {{ end }}
+</div>

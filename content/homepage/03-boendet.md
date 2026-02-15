@@ -4,7 +4,7 @@ weight: 3
 header_menu: true
 ---
 
-![Bostäderna på Ekvägen](/images/boendet.jpg)
+{{< carousel images="images/utsikt.jpg, images/plan.jpg" >}}
 
 Bostäderna i Brf Eken är ljusa och välplanerade med modern standard. Föreningen erbjuder en trygg och bekväm boendemiljö med omtanke om både detaljer och helheten.
 
